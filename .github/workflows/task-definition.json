@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:992382516702:task-definition/myreactapp-family:15",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:992382516702:task-definition/myreactapp-family:22",
     "containerDefinitions": [
         {
             "name": "myreactapp-container",
@@ -21,18 +21,14 @@
         }
     ],
     "family": "myreactapp-family",
-    "taskRoleArn": "arn:aws:iam::992382516702:role/ecsTaskExecutionRole",
-    "executionRoleArn": "arn:aws:iam::992382516702:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::992382516702:role/myECcsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 15,
+    "revision": 22,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
         {
             "name": "com.amazonaws.ecs.capability.ecr-auth"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.task-iam-role"
         },
         {
             "name": "ecs.capability.execution-role-ecr-pull"
@@ -54,6 +50,6 @@
     ],
     "cpu": "256",
     "memory": "512",
-    "registeredAt": "2024-05-13T11:12:25.450000+00:00",
+    "registeredAt": "2024-05-14T11:24:16.259000+00:00",
     "registeredBy": "arn:aws:iam::992382516702:user/mukthiyar"
 }
