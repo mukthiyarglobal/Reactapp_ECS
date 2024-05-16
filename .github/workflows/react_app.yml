@@ -56,7 +56,7 @@ jobs:
 
       - name: Remove unsupported keys from task definition JSON
         run: |
-          jq 'del(.taskDefinitionArn, .revision, .status, .requiresAttributes, .compatibilities, .registeredAt, .registeredBy, .tags)' task_definition.json > modified_task_definition.json
+          jq '.taskDefinition | del(.taskDefinitionArn, .revision, .status, .requiresAttributes, .compatibilities, .registeredAt, .registeredBy, .tags)' task_definition.json > modified_task_definition.json
 
       - name: Output modified task definition JSON
         run: cat modified_task_definition.json
