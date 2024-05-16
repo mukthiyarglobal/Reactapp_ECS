@@ -54,11 +54,15 @@ jobs:
       - name: Display contents of latest task definition file
         run: cat task_definition.json
 
+      - name: Remove unsupported keys from task definition JSON
+        run: |
+          jq 'del(.taskDefinitionArn, .revision, .status, .requiresAttributes, .compatibilities, .registeredAt, .registeredBy, .tags)' task_definition.json > modified_task_definition.json
+
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: ./task_definition.json
+          task-definition: ./modified_task_definition.json
           container-name: ${{ env.CONTAINER_NAME }}
           image: ${{ steps.build-image.outputs.image }}
 
